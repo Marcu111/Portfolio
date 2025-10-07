@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Contato</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-container {
+
+            background: #fff;
+            padding: 2.5rem 2rem;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(40, 60, 120, 0.18);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 1s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .contact-container h2 {
+            color: #2575fc;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+        .contact-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .contact-container input,
+        .contact-container textarea {
+            padding: 0.8rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+            outline: none;
+            resize: none;
+        }
+        .contact-container input:focus,
+        .contact-container textarea:focus {
+            border-color: #2575fc;
+        }
+        .contact-container button {
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+            color: #fff;
+            border: none;
+            padding: 0.9rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .contact-container button:hover {
+            background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+            transform: translateY(-2px) scale(1.03);
+        }
+        @media (max-width: 500px) {
+            .contact-container {
+                padding: 1.2rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <h2>Entre em Contato</h2>
+        <form>
+            <input type="text" name="nome" placeholder="Seu nome" required>
+            <input type="email" name="email" placeholder="Seu e-mail" required>
+            <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+        <div style="margin-top: 24px; display: flex; gap: 16px; justify-content: center;">
+            <!-- Botão para ir para o início do site -->
+            <a href="index.html#inicio" style="background:linear-gradient(90deg,#6a11cb 0%,#2575fc 100%);color:#fff;padding:10px 22px;border:none;border-radius:8px;font-size:1rem;font-weight:bold;text-decoration:none;transition:background 0.2s,transform 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.08);">Ir para Início</a>
+            <!-- Botão para voltar para a página anterior -->
+            <button type="button" onclick="history.back()" style="background:linear-gradient(90deg,#2575fc 0%,#6a11cb 100%);color:#fff;padding:10px 22px;border:none;border-radius:8px;font-size:1rem;font-weight:bold;cursor:pointer;transition:background 0.2s,transform 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.08);">Voltar</button>
+        </div>
+    </div>
+</body>
+</html>
