@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             min-height: 100vh;
@@ -14,8 +13,24 @@
             align-items: center;
             justify-content: center;
         }
+        #mensagem-dinamica {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #222;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 8px;
+            display: none;
+            z-index: 100;
+            font-size: 1.1rem;
+            max-width: 90vw;
+            text-align: center;
+            word-break: break-word;
+            box-sizing: border-box;
+        }
         .contact-container {
-
             background: #fff;
             padding: 2.5rem 2rem;
             border-radius: 18px;
@@ -28,12 +43,6 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(40px);}
             to { opacity: 1; transform: translateY(0);}
-        }
-        .contact-container h2 {
-            color: #2575fc;
-            margin-bottom: 1rem;
-            font-size: 2rem;
-            letter-spacing: 1px;
         }
         .contact-container form {
             display: flex;
@@ -73,10 +82,16 @@
             .contact-container {
                 padding: 1.2rem 0.5rem;
             }
+            #mensagem-dinamica {
+                font-size: 0.95rem;
+                padding: 8px 8vw;
+                max-width: 98vw;
+            }
         }
     </style>
 </head>
 <body>
+    <div id="mensagem-dinamica">Bem-vindo à página de contato!</div>
     <div class="contact-container">
         <h2>Entre em Contato</h2>
         <form>
@@ -92,5 +107,24 @@
             <button type="button" onclick="history.back()" style="background:linear-gradient(90deg,#2575fc 0%,#6a11cb 100%);color:#fff;padding:10px 22px;border:none;border-radius:8px;font-size:1rem;font-weight:bold;cursor:pointer;transition:background 0.2s,transform 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.08);">Voltar</button>
         </div>
     </div>
+    <script>
+        // Mensagens dinâmicas para contato
+        const mensagens = [
+            "Bem-vindo à página de contato!",
+            "Preencha o formulário para falar comigo.",
+            "Retorno garantido: respondo todas as mensagens!",
+            "Você também pode me encontrar nas redes sociais.",
+            "Obrigado pelo seu interesse no meu trabalho!"
+        ];
+        let msgIndex = 0;
+        const msgDiv = document.getElementById('mensagem-dinamica');
+        function mostrarMensagem() {
+            msgDiv.textContent = mensagens[msgIndex];
+            msgDiv.style.display = 'block';
+            msgIndex = (msgIndex + 1) % mensagens.length;
+        }
+        setInterval(mostrarMensagem, 4000);
+        mostrarMensagem();
+    </script>
 </body>
 </html>
