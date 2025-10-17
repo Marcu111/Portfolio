@@ -1,34 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projetos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        #mensagem-dinamica {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #222;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 8px;
+            display: none;
+            z-index: 100;
+            font-size: 1.1rem;
+            max-width: 90vw;
+            text-align: center;
+            word-break: break-word;
+            box-sizing: border-box;
+        }
+        .apresentacao {
+            max-width: 700px;
+            margin: 32px auto 0 auto;
+            text-align: center;
+            color: #222;
+            font-size: 1.15rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            padding: 24px 18px 10px 18px;
+        }
+        .cards-projetos {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 24px 0;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 24px 18px;
+            width: 260px;
+            text-align: center;
+            transition: transform 0.2s;
+            font-family: inherit;
+        }
+        .card:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+        }
+    </style>
 </head>
 <body>
-    
+    <div id="mensagem-dinamica">Bem-vindo à página de projetos!</div>
+    <div class="apresentacao">
+        <h1>Projetos em Destaque</h1>
+        <p>
+            Aqui você encontra alguns dos principais projetos que desenvolvi.<br>
+            Explore cada card para saber mais sobre minhas experiências práticas e habilidades aplicadas.<br>
+            Sinta-se à vontade para navegar pelo portfólio e conhecer melhor meu trabalho!
+        </p>
+    </div>
+    <section id="projetos">
+        <div class="cards-projetos">
+            <div class="card" data-titulo="Calculadora Simples" data-descricao="Uma calculadora básica feita em HTML, CSS e JS.">
+                <h3>Calculadora Simples</h3>
+                <p>Uma calculadora básica feita em HTML, CSS e JS.</p>
+            </div>
+            <div class="card" data-titulo="Portfolio Pessoal" data-descricao="Este próprio site, feito para mostrar meus trabalhos.">
+                <h3>Portfolio Pessoal</h3>
+                <p>Este próprio site, feito para mostrar meus trabalhos.</p>
+            </div>
+            <div class="card" data-titulo="Site Sapataria" data-descricao="Site fictício para uma loja de sapatos, com catálogo e contato.">
+                <h3>Site Sapataria</h3>
+                <p>Site fictício para uma loja de sapatos, com catálogo e contato.</p>
+            </div>
+        </div>
+        <div style="margin-top: 32px; display: flex; gap: 16px; justify-content: center;">
+            <a href="index.html#inicio" style="background:linear-gradient(90deg,#6a11cb 0%,#2575fc 100%);color:#fff;padding:10px 22px;border:none;border-radius:8px;font-size:1rem;font-weight:bold;text-decoration:none;transition:background 0.2s,transform 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.08);font-family:inherit;">Ir para Início</a>
+            <button type="button" onclick="history.back()" style="background:linear-gradient(90deg,#2575fc 0%,#6a11cb 100%);color:#fff;padding:10px 22px;border:none;border-radius:8px;font-size:1rem;font-weight:bold;cursor:pointer;transition:background 0.2s,transform 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.08);font-family:inherit;">Voltar</button>
+        </div>
+    </section>
+    <script>
+        // Mensagens dinâmicas sobre o site e a seção
+        const mensagens = [
+            "Bem-vindo à página de projetos!",
+            "Aqui você pode conhecer meus principais trabalhos.",
+            "Clique nos projetos para saber mais sobre cada um.",
+            "Navegue pelo menu para explorar outras áreas do portfólio.",
+            "Obrigado por visitar meus projetos!"
+        ];
+        let msgIndex = 0;
+        const msgDiv = document.getElementById('mensagem-dinamica');
+        function mostrarMensagem() {
+            msgDiv.textContent = mensagens[msgIndex];
+            msgDiv.style.display = 'block';
+            msgIndex = (msgIndex + 1) % mensagens.length;
+        }
+        setInterval(mostrarMensagem, 4000);
+        mostrarMensagem();
+    </script>
 </body>
 </html>
-<section id="projetos">
-    <h2>Meus Projetos</h2>
-    <div class="cards-projetos">
-        <div class="card" data-titulo="Calculadora Simples" data-descricao="Uma calculadora básica feita em HTML, CSS e JS.">
-            <h3>Calculadora Simples</h3>
-            <p>Uma calculadora básica feita em HTML, CSS e JS.</p>
-        </div>
-        <div class="card" data-titulo="Portfolio Pessoal" data-descricao="Este próprio site, feito para mostrar meus trabalhos.">
-            <h3>Portfolio Pessoal</h3>
-            <p>Este próprio site, feito para mostrar meus trabalhos.</p>
-        </div>
-        <div class="card" data-titulo="Site Sapataria" data-descricao="Site fictício para uma loja de sapatos, com catálogo e contato.">
-            <h3>Site Sapataria</h3>
-            <p>Site fictício para uma loja de sapatos, com catálogo e contato.</p>
-        </div>
-    </div>
-    <div style="margin-top: 32px; display: flex; gap: 16px; justify-content: center;">
-        <!-- Botão para ir para o início do site -->
-        <a href="index.html#inicio" style="background:linear-gradient(90deg,#6a11cb 0%,#2575fc 100%);color:#fff;padding:10px 22px;border:none;border-radius:8px;font-size:1rem;font-weight:bold;text-decoration:none;transition:background 0.2s,transform 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.08);">Ir para Início</a>
-        <!-- Botão para voltar para a página anterior -->
-        <button type="button" onclick="history.back()" style="background:linear-gradient(90deg,#2575fc 0%,#6a11cb 100%);color:#fff;padding:10px 22px;border:none;border-radius:8px;font-size:1rem;font-weight:bold;cursor:pointer;transition:background 0.2s,transform 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.08);">Voltar</button>
-    </div>
-</section>
